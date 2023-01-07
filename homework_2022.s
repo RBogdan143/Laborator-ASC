@@ -33,7 +33,7 @@ cmpl $1, %eax
 je et_c1
 cmpl $2, %eax
 je et_c2
-jmp et_exit
+jmp et_exit3
 
 et_c2:
 push $str
@@ -274,6 +274,11 @@ et_exit2:
 push $formatPrintfEND
 call printf
 pop %ecx
+mov $1, %eax
+xor %ebx, %ebx
+int $0x80
+
+et_exit3:
 mov $1, %eax
 xor %ebx, %ebx
 int $0x80
